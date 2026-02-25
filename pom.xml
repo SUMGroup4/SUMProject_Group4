@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.marstravelsbookings/com.example.marstravelsbookings.HelloApplication
+                                com.example.marstravelsbookings/com.example.marstravelsbookings.Main.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
