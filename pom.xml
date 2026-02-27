@@ -62,7 +62,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.marstravelsbookings/com.example.marstravelsbookings.Main.MarsTravelsBookingApplication
+                                com.example.marstravelsbookings/com.example.marstravelsbookings.Main.EmilsMatpaketPreviewApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
