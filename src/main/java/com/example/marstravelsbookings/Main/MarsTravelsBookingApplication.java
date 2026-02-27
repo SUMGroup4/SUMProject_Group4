@@ -10,9 +10,9 @@ import java.io.IOException;
 public class MarsTravelsBookingApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MarsTravelsBookingApplication.class.getResource("/views/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(MarsTravelsBookingApplication.class.getResource("/UC#7/Bokning_av_matpaket.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 700);
+        stage.setTitle("UC7 – Bokning av matpaket");
         stage.setScene(scene);
         stage.show();
     }
