@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <Label layoutX="25.0" layoutY="25.0" text="Evenemang">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="185.0" text="Konsert" />
+      <Label layoutX="27.0" layoutY="293.0" text="Teaterpremiär" />
+      <Label layoutX="26.0" layoutY="108.0" text="Varje månad visas en ny film!">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="211.0" text="Varannan månad har vi en ny konsert!">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="319.0" text="Vi har en ny fföreställning varannan månad!">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="82.0" text="Filmpremiär" />
+      <Button layoutX="22.0" layoutY="131.0" mnemonicParsing="false" text="Visa Filmer" />
+      <Button layoutX="24.0" layoutY="239.0" mnemonicParsing="false" text="Visa Konserter" />
+      <Button layoutX="30.0" layoutY="347.0" mnemonicParsing="false" text="Visa Teaterpjäser" />
+   </children>
+</AnchorPane>
