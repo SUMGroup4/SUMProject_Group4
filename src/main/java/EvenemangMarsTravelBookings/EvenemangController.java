@@ -44,8 +44,6 @@ TreeMap<Integer, String> checkIfMovieTrue = new TreeMap<>();
         if(chooseChbxFilmTitanic.isSelected()){
             check[0] = true;
 
-        } else if (chooseChbxFilmTitanic.isDisabled()) {
-            check[0] = false;
         }
 
         if(chooseChbxFilmJumanji.isSelected()){
