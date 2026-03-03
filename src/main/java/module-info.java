@@ -5,4 +5,6 @@ module com.example.marstravelsbookings {
 
     opens com.example.marstravelsbookings.Main.controllers to javafx.fxml;
     exports com.example.marstravelsbookings.Main;
+    opens com.example.marstravelsbookings.Main.EmilsLåda to javafx.fxml;
+    exports com.example.marstravelsbookings.Main.EmilsLåda;
 }

@@ -1,6 +1,7 @@
 package com.example.marstravelsbookings.Main.repositories;
 
-import com.example.marstravelsbookings.Main.models.MealPackageBooking;
+import com.example.marstravelsbookings.Main.EmilsLåda.MealPackageBooking;
+import com.example.marstravelsbookings.Main.EmilsLåda.MealPackageBookingRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 

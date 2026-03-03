@@ -6,7 +6,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/24"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.marstravelsbookings.Main.controllers.EmilsMatpaketController"
+            fx:controller="com.example.marstravelsbookings.Main.EmilsLåda.EmilsMatpaketController"
             prefWidth="1100.0" prefHeight="700.0">
 
     <!-- ===================== TOP / HEADER ===================== -->

@@ -1,4 +1,4 @@
-package com.example.marstravelsbookings.Main;
+package com.example.marstravelsbookings.Main.EmilsLåda;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

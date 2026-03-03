@@ -1,4 +1,4 @@
-package com.example.marstravelsbookings.Main.models;
+package com.example.marstravelsbookings.Main.EmilsLåda;
 
 import java.time.LocalDateTime;
 

@@ -1,9 +1,5 @@
-package com.example.marstravelsbookings.Main.controllers;
+package com.example.marstravelsbookings.Main.EmilsLåda;
 
-import com.example.marstravelsbookings.Main.models.Customer;
-import com.example.marstravelsbookings.Main.models.MealPackageBooking;
-import com.example.marstravelsbookings.Main.repositories.CustomerRepository;
-import com.example.marstravelsbookings.Main.repositories.MealPackageBookingRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
