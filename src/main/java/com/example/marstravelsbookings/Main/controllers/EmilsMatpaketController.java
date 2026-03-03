@@ -1,5 +1,9 @@
 package com.example.marstravelsbookings.Main.controllers;
 
+import com.example.marstravelsbookings.Main.models.Customer;
+import com.example.marstravelsbookings.Main.models.MealPackageBooking;
+import com.example.marstravelsbookings.Main.repositories.CustomerRepository;
+import com.example.marstravelsbookings.Main.repositories.MealPackageBookingRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,21 +26,53 @@ public class EmilsMatpaketController implements Initializable {
     @FXML private RadioButton mellanRadio;
     @FXML private RadioButton lyxRadio;
     @FXML private ToggleGroup categoryGroup;
+    @FXML private ComboBox<Customer> customerCombo;
     @FXML private ComboBox<String> packageCombo;
     @FXML private Label descriptionLabel;
     @FXML private Label priceLabel;
     @FXML private Label selectedPackageLabel;
     @FXML private Label selectedPriceLabel;
+    @FXML private Label bookingStatusLabel;
     @FXML private Button cancelButton;
     @FXML private Button bookButton;
 
     private final Map<String, List<PackageInfo>> packageData = new LinkedHashMap<>();
+    private final CustomerRepository customerRepository = CustomerRepository.getInstance();
+    private final MealPackageBookingRepository bookingRepository = MealPackageBookingRepository.getInstance();
+    private String activeCategory = "Budget";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        seedCustomers();
         seedData();
         setupHandlers();
         setCategory("Budget");
+        updateBookingStatus("Välj kund och paket för att boka.");
+    }
+
+    private void seedCustomers() {
+        customerRepository.seedIfEmpty(List.of(
+                new Customer("CUST-1001", "Eva", "Sund", "eva@example.se", "+46 70 123 45 67"),
+                new Customer("CUST-1002", "Max", "Lund", "max@example.se", "+46 70 765 43 21"),
+                new Customer("CUST-1003", "Lina", "Berg", "lina@example.se", "+46 72 222 33 44")
+        ));
+        ObservableList<Customer> customers = FXCollections.observableArrayList(customerRepository.findAll());
+        customerCombo.setItems(customers);
+        customerCombo.setPromptText("Välj kund (måste finnas i repository)");
+        customerCombo.setCellFactory(listView -> new javafx.scene.control.ListCell<>() {
+            @Override
+            protected void updateItem(Customer item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getDisplayName() + " (" + item.getId() + ")");
+            }
+        });
+        customerCombo.setButtonCell(new javafx.scene.control.ListCell<>() {
+            @Override
+            protected void updateItem(Customer item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getDisplayName() + " (" + item.getId() + ")");
+            }
+        });
     }
 
     private void seedData() {
@@ -72,10 +109,11 @@ public class EmilsMatpaketController implements Initializable {
 
         packageCombo.valueProperty().addListener((obs, oldVal, newVal) -> updateSelection(newVal));
         cancelButton.setOnAction(event -> clearSelection());
-        bookButton.setOnAction(event -> selectedPackageLabel.setText(packageCombo.getValue() == null ? "(inget valt)" : packageCombo.getValue()));
+        bookButton.setOnAction(event -> handleBooking());
     }
 
     private void setCategory(String category) {
+        activeCategory = category;
         List<PackageInfo> packages = packageData.getOrDefault(category, List.of());
         ObservableList<String> names = FXCollections.observableArrayList(packages.stream().map(p -> p.name).toList());
         packageCombo.setItems(names);
@@ -116,6 +154,40 @@ public class EmilsMatpaketController implements Initializable {
         priceLabel.setText("— kr/pers");
         selectedPackageLabel.setText("(inget valt)");
         selectedPriceLabel.setText("— kr/pers");
+    }
+
+    private void handleBooking() {
+        Customer customer = customerCombo.getValue();
+        if (customer == null) {
+            updateBookingStatus("Välj kund innan bokning kan sparas.");
+            return;
+        }
+        String selectedPackage = packageCombo.getValue();
+        if (selectedPackage == null) {
+            updateBookingStatus("Välj ett paket innan bokning kan sparas.");
+            return;
+        }
+        PackageInfo info = findPackage(selectedPackage);
+        if (info == null) {
+            updateBookingStatus("Kunde inte hitta paketet. Försök igen.");
+            return;
+        }
+        MealPackageBooking booking = new MealPackageBooking(
+                customer.getId(),
+                activeCategory,
+                info.name,
+                info.price,
+                info.description,
+                LocalDateTime.now()
+        );
+        bookingRepository.save(booking);
+        updateBookingStatus("Bokning sparad för " + customer.getDisplayName() + " (" + customer.getId() + ").");
+    }
+
+    private void updateBookingStatus(String message) {
+        if (bookingStatusLabel != null) {
+            bookingStatusLabel.setText(message);
+        }
     }
 
     private static final class PackageInfo {

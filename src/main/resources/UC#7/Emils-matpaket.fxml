@@ -16,6 +16,18 @@
                 <Insets top="18.0" right="18.0" bottom="14.0" left="18.0"/>
             </padding>
 
+            <!-- Navigation tabs (layout only) -->
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+                <Button text="Översikt"
+                        style="-fx-background-color: #E5E7EB; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 12px; -fx-padding: 8 12;"/>
+                <Button text="Matpaket"
+                        style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 12px; -fx-padding: 8 12;"/>
+                <Button text="Kunder"
+                        style="-fx-background-color: #E5E7EB; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 12px; -fx-padding: 8 12;"/>
+                <Button text="Bokningar"
+                        style="-fx-background-color: #E5E7EB; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 12px; -fx-padding: 8 12;"/>
+            </HBox>
+
             <Label text="Matpaket"
                    style="-fx-font-size: 28px; -fx-font-weight: 800; -fx-text-fill: #111827;"/>
 
@@ -40,8 +52,23 @@
                         <Insets top="18.0" right="18.0" bottom="18.0" left="18.0"/>
                     </padding>
 
+                    <!-- Customer selection -->
+                    <TitledPane text="1) Välj kund" expanded="true" collapsible="false">
+                        <content>
+                            <VBox spacing="10.0">
+                                <Label text="Välj kunden som bokningen ska sparas på (måste redan finnas i repository)."
+                                       wrapText="true"
+                                       style="-fx-text-fill: #6B7280;"/>
+
+                                <ComboBox fx:id="customerCombo"
+                                          promptText="Välj kund"
+                                          prefWidth="520.0"/>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
                     <!-- Category selection "cards" -->
-                    <TitledPane text="1) Välj kategori" expanded="true" collapsible="false">
+                    <TitledPane text="2) Välj kategori" expanded="true" collapsible="false">
                         <content>
                             <VBox spacing="10.0">
                                 <Label text="Välj en kategori för att se tillgängliga matpaket."
@@ -79,7 +106,7 @@
                     </TitledPane>
 
                     <!-- Package selection and details -->
-                    <TitledPane text="2) Välj paket och se detaljer" expanded="true" collapsible="false">
+                    <TitledPane text="3) Välj paket och se detaljer" expanded="true" collapsible="false">
                         <content>
                             <VBox spacing="14.0">
                                 <GridPane hgap="12.0" vgap="10.0">
@@ -213,6 +240,13 @@
                 <Button fx:id="bookButton" text="Boka matpaket" defaultButton="true"
                         style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 10px; -fx-padding: 10 16;"/>
             </HBox>
+            <Label fx:id="bookingStatusLabel"
+                   text="Välj kund och paket för att boka."
+                   style="-fx-text-fill: #6B7280; -fx-font-size: 12px;">
+                <padding>
+                    <Insets top="0.0" right="18.0" bottom="10.0" left="18.0"/>
+                </padding>
+            </Label>
         </VBox>
     </bottom>
 
