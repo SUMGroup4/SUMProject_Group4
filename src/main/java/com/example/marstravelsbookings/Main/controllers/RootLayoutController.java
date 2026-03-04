@@ -57,4 +57,6 @@ public class RootLayoutController
     {
         NavigationService.loadView(viewPaths.get(0));
     }
+        NavigationService.loadView("/views/Evenemang.fxml");
+    } // test
 }
