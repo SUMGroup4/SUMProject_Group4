@@ -29,5 +29,5 @@ public class RootLayoutController
 
         // Visa startsida
         NavigationService.loadView("/views/Evenemang.fxml");
-    }
+    } // test
 }
