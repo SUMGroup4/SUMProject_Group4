@@ -1,11 +1,8 @@
-package EvenemangMarsTravelBookings;
+package com.example.marstravelsbookings.Main.controllers;
 
-import com.sun.source.tree.Tree;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.TreeMap;
 
 public class EvenemangController {
