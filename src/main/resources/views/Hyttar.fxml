@@ -1,50 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" style="-fx-background: #F9FAFB; -fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="602.0" prefWidth="953.0" style="-fx-background: #F9FAFB; -fx-background-color: transparent;" vbarPolicy="AS_NEEDED" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marstravelsbookings.Main.controllers.HyttarController">
     <content>
-        <AnchorPane prefHeight="1000.0" prefWidth="1200.0">
+        <AnchorPane prefHeight="1000.0" prefWidth="200.0">
             <children>
-                <Label layoutX="14.0" layoutY="40.0" text="Rubrik">
+                <Label layoutX="16.0" layoutY="14.0" text="Svit">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Label>
-                <Label layoutX="14.0" layoutY="76.0" text="Brödtext">
+                <Label layoutX="147.0" layoutY="-12.0" prefHeight="123.0" prefWidth="516.0" text="Svit – hytt med utsikt över rymden, separat vardags- och sovrum inklusivedubbelsäng. Dessutom skärm med stort utbud av film, serier, musik och spel.Badrum med badkar/dusch och toalett. Frukost ingår i priset." textOverrun="CLIP" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="13.0" layoutY="105.0" mnemonicParsing="false" text="Välj" />
-                <RadioButton layoutX="62.0" layoutY="105.0" mnemonicParsing="false" text="Budget" />
-                <Label layoutX="172.0" layoutY="104.0" text="Två olika knappval kopiera dessa ta brot vid designen">
+                <Line endX="1060.0" layoutX="112.0" layoutY="195.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
+                <CheckBox fx:id="choosechbxsvit1" layoutX="25.0" layoutY="86.0" mnemonicParsing="false" text="Svit 1" />
+                <CheckBox fx:id="choosechbxsvit2" layoutX="24.0" layoutY="117.0" mnemonicParsing="false" text="Svit 2" />
+                <CheckBox fx:id="choosechbxsvit3" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" text="Svit 3" />
+                <Label layoutX="20.0" layoutY="208.0" text="Spaceside">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Line endX="1060.0" layoutX="113.0" layoutY="399.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
+                <CheckBox fx:id="choosechbxspaceside1" layoutX="26.0" layoutY="290.0" mnemonicParsing="false" text="Spaceside 1" />
+                <CheckBox fx:id="choosechbxspaceside2" layoutX="25.0" layoutY="321.0" mnemonicParsing="false" text="Spaceside 2" />
+                <CheckBox fx:id="choosechbxspaceside3" layoutX="25.0" layoutY="353.0" mnemonicParsing="false" text="Spaceside 3" />
+                <Label layoutX="18.0" layoutY="412.0" text="Inside">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Label layoutX="147.0" layoutY="420.0" text="Inside – Insideshytt med två underbäddar som kan ändras till soffa dagtid.Badrum med dusch och toalett.">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="172.0" layoutY="76.0" text="Font brödtext är i System regular i 14px ta bort vid designen">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="172.0" layoutY="40.0" text="Font rubrik system bold ta bort vid designen">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <Line endX="1060.0" layoutX="115.0" layoutY="176.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
-                <Label layoutX="15.0" layoutY="553.0" text="Glöm inte skriva rätt sida ta bort denna textrad vid designen">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
+                <Line endX="1060.0" layoutX="113.0" layoutY="591.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
+                <CheckBox fx:id="choosechbxinside1" layoutX="29.0" layoutY="484.0" mnemonicParsing="false" text="Inside 1" />
+                <CheckBox fx:id="choosechbxinside2" layoutX="28.0" layoutY="515.0" mnemonicParsing="false" text="Inside 2" />
+                <CheckBox fx:id="choosechbxinside3" layoutX="28.0" layoutY="547.0" mnemonicParsing="false" text="Inside 3" />
+            <Label layoutX="27.0" layoutY="609.0" text="Economy">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="147.0" layoutY="577.0" prefHeight="121.0" prefWidth="578.0" text="Economy – Insideshytt med 4 bäddar (två under- och överbäddar) därunderbäddarna kan ändras till soffa dagtid. Dusch finns till hytten, men toaletterfinns i korridoren." wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Line endX="1060.0" layoutX="125.0" layoutY="790.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
+            <CheckBox fx:id="choosechbxeconomy1" layoutX="38.0" layoutY="681.0" mnemonicParsing="false" text="Economy 1" />
+            <CheckBox fx:id="choosechbxeconomy2" layoutX="37.0" layoutY="712.0" mnemonicParsing="false" text="Economy 2" />
+            <CheckBox fx:id="choosechbxeconomy3" layoutX="37.0" layoutY="744.0" mnemonicParsing="false" text="Economy 3" />
+            <Label layoutX="147.0" layoutY="175.0" prefHeight="114.0" prefWidth="478.0" text="Spaceside – hytt med utsikt över rymden, dubbelsäng. Dessutom skärm med stortutbud av film, serier, musik och spel. Badrum med dusch och toalett." wrapText="true" />
             </children>
         </AnchorPane>
     </content>
