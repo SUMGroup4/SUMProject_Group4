@@ -14,95 +14,53 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marstravelsbookings.Main.controllers.EvenemangController">
-   <top>
-      <VBox spacing="10.0" style="-fx-background-color: white;">
-         <padding>
-            <Insets bottom="14.0" left="18.0" right="18.0" top="18.0" />
-         </padding>
-         <children>
-            <HBox alignment="CENTER_LEFT" spacing="8.0" />
-            <Label style="-fx-font-size: 28px; -fx-font-weight: 800; -fx-text-fill: #111827;" text="Evenemang" />
-            <Label style="-fx-font-size: 13px; -fx-text-fill: #6B7280;" text="Välj kategori och paket för att se innehåll och pris." wrapText="true" />
-            <Separator />
-         </children>
-      </VBox>
-   </top>
-   <bottom>
-      <VBox spacing="10.0" style="-fx-background-color: white;">
-         <children>
-            <Separator />
-            <HBox alignment="CENTER_LEFT" spacing="14.0">
-               <padding>
-                  <Insets bottom="16.0" left="18.0" right="18.0" top="12.0" />
-               </padding>
-               <children>
-                  <Label style="-fx-font-weight: 800; -fx-text-fill: #111827;" text="Sida 3/4">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Region HBox.hgrow="ALWAYS" />
-                  <Label style="-fx-text-fill: #6B7280;" />
-                  <Region HBox.hgrow="ALWAYS" />
-                  <Button cancelButton="true" style="-fx-background-color: #F3F4F6; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 10px; -fx-padding: 10 14;" text="&lt;" />
-                  <Button defaultButton="true" style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 10px; -fx-padding: 10 16;" text="Spara" />
-                  <Button cancelButton="true" style="-fx-background-color: #F3F4F6; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 10px; -fx-padding: 10 14;" text="&gt;" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </bottom>
-   <center>
-      <ScrollPane  fitToWidth="true" hbarPolicy="NEVER" pannable="true" style="-fx-background: #F9FAFB; -fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
-         <content>
-            <AnchorPane prefHeight="600.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="14.0" layoutY="14.0" text="Filmpremiärer">
-                     <font>
+<ScrollPane  fitToWidth="true" hbarPolicy="NEVER" pannable="true" style="-fx-background: #F9FAFB; -fx-background-color: transparent;" vbarPolicy="AS_NEEDED" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marstravelsbookings.Main.controllers.EvenemangController">
+    <content>
+        <AnchorPane prefHeight="600.0" prefWidth="200.0">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" text="Filmpremiärer">
+                    <font>
                         <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="50.0" text="Varje månad visas en ny film!">
-                     <font>
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="50.0" text="Varje månad visas en ny film!">
+                    <font>
                         <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Line endX="1060.0" layoutX="112.0" layoutY="195.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
-                  <CheckBox fx:id="chooseChbxFilmTitanic" layoutX="25.0" layoutY="86.0" mnemonicParsing="false" text="Titanic" />
-                  <CheckBox fx:id="chooseChbxFilmTerminator" layoutX="24.0" layoutY="117.0" mnemonicParsing="false" text="Terminator" />
-                  <CheckBox fx:id="chooseChbxFilmJumanji" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" text="Jumanji" />
-                  <Label layoutX="15.0" layoutY="218.0" text="Konsert">
-                     <font>
+                    </font>
+                </Label>
+                <Line endX="1060.0" layoutX="112.0" layoutY="195.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
+                <CheckBox fx:id="chooseChbxFilmTitanic" layoutX="25.0" layoutY="86.0" mnemonicParsing="false" text="Titanic" />
+                <CheckBox fx:id="chooseChbxFilmTerminator" layoutX="24.0" layoutY="117.0" mnemonicParsing="false" text="Terminator" />
+                <CheckBox fx:id="chooseChbxFilmJumanji" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" text="Jumanji" />
+                <Label layoutX="15.0" layoutY="218.0" text="Konsert">
+                    <font>
                         <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="15.0" layoutY="254.0" text="Varannan månad har vi en ny konsert med olika artister!">
-                     <font>
+                    </font>
+                </Label>
+                <Label layoutX="15.0" layoutY="254.0" text="Varannan månad har vi en ny konsert med olika artister!">
+                    <font>
                         <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Line endX="1060.0" layoutX="113.0" layoutY="399.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
-                  <CheckBox fx:id="chooseChbxKonsertGwenStefani" layoutX="26.0" layoutY="290.0" mnemonicParsing="false" text="Gwen Stefani" />
-                  <CheckBox fx:id="chooseChbxKonsertStefanLoven" layoutX="25.0" layoutY="321.0" mnemonicParsing="false" text="Stefan Löven" />
-                  <CheckBox fx:id="chooseChbxKonsertTheLeatherNuns" layoutX="25.0" layoutY="353.0" mnemonicParsing="false" text="The Leather Nuns" />
-                  <Label layoutX="18.0" layoutY="412.0" text="Teaterpremiär">
-                     <font>
+                    </font>
+                </Label>
+                <Line endX="1060.0" layoutX="113.0" layoutY="399.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
+                <CheckBox fx:id="chooseChbxKonsertGwenStefani" layoutX="26.0" layoutY="290.0" mnemonicParsing="false" text="Gwen Stefani" />
+                <CheckBox fx:id="chooseChbxKonsertStefanLoven" layoutX="25.0" layoutY="321.0" mnemonicParsing="false" text="Stefan Löven" />
+                <CheckBox fx:id="chooseChbxKonsertTheLeatherNuns" layoutX="25.0" layoutY="353.0" mnemonicParsing="false" text="The Leather Nuns" />
+                <Label layoutX="18.0" layoutY="412.0" text="Teaterpremiär">
+                    <font>
                         <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="18.0" layoutY="448.0" text="Vi har en ny föreställning varannan månad!">
-                     <font>
+                    </font>
+                </Label>
+                <Label layoutX="18.0" layoutY="448.0" text="Vi har en ny föreställning varannan månad!">
+                    <font>
                         <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Line endX="1060.0" layoutX="116.0" layoutY="593.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
-                  <CheckBox fx:id="chooseChbxTeaterHamlet" layoutX="29.0" layoutY="484.0" mnemonicParsing="false" text="Hamlet" />
-                  <CheckBox fx:id="chooseChbxTeaterRomeoOchJulia" layoutX="28.0" layoutY="515.0" mnemonicParsing="false" text="Romeo och Julia" />
-                  <CheckBox fx:id="chooseChbxTeaterDracula" layoutX="28.0" layoutY="547.0" mnemonicParsing="false" text="Dracula" />
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
-   </center>
-</BorderPane>
+                    </font>
+                </Label>
+                <Line endX="1060.0" layoutX="116.0" layoutY="593.0" opacity="0.51" startX="-100.0" strokeWidth="0.5" />
+                <CheckBox fx:id="chooseChbxTeaterHamlet" layoutX="29.0" layoutY="484.0" mnemonicParsing="false" text="Hamlet" />
+                <CheckBox fx:id="chooseChbxTeaterRomeoOchJulia" layoutX="28.0" layoutY="515.0" mnemonicParsing="false" text="Romeo och Julia" />
+                <CheckBox fx:id="chooseChbxTeaterDracula" layoutX="28.0" layoutY="547.0" mnemonicParsing="false" text="Dracula" />
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>
