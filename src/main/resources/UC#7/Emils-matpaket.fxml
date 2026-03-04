@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/24"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.marstravelsbookings.Main.EmilsLåda.EmilsMatpaketController"
+            prefWidth="1100.0" prefHeight="700.0">
+
+    <!-- ===================== TOP / HEADER ===================== -->
+    <top>
+        <VBox spacing="10.0" style="-fx-background-color: white;">
+            <padding>
+                <Insets top="18.0" right="18.0" bottom="14.0" left="18.0"/>
+            </padding>
+
+            <!-- Navigation tabs (layout only) -->
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+                <Button text="Översikt"
+                        style="-fx-background-color: #E5E7EB; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 12px; -fx-padding: 8 12;"/>
+                <Button text="Matpaket"
+                        style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 12px; -fx-padding: 8 12;"/>
+                <Button text="Kunder"
+                        style="-fx-background-color: #E5E7EB; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 12px; -fx-padding: 8 12;"/>
+                <Button text="Bokningar"
+                        style="-fx-background-color: #E5E7EB; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 12px; -fx-padding: 8 12;"/>
+            </HBox>
+
+            <Label text="Matpaket"
+                   style="-fx-font-size: 28px; -fx-font-weight: 800; -fx-text-fill: #111827;"/>
+
+            <Label text="Välj kategori och paket för att se innehåll och pris."
+                   wrapText="true"
+                   style="-fx-font-size: 13px; -fx-text-fill: #6B7280;"/>
+
+            <Separator/>
+        </VBox>
+    </top>
+
+    <!-- ===================== CENTER / MAIN CONTENT ===================== -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    pannable="true"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    style="-fx-background: #F9FAFB; -fx-background-color: transparent;">
+            <content>
+                <VBox spacing="16.0" style="-fx-background-color: #F9FAFB;">
+                    <padding>
+                        <Insets top="18.0" right="18.0" bottom="18.0" left="18.0"/>
+                    </padding>
+
+                    <!-- Customer selection -->
+                    <TitledPane text="1) Välj kund" expanded="true" collapsible="false">
+                        <content>
+                            <VBox spacing="10.0">
+                                <Label text="Välj kunden som bokningen ska sparas på (måste redan finnas i repository)."
+                                       wrapText="true"
+                                       style="-fx-text-fill: #6B7280;"/>
+
+                                <ComboBox fx:id="customerCombo"
+                                          promptText="Välj kund"
+                                          prefWidth="520.0"/>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <!-- Category selection "cards" -->
+                    <TitledPane text="2) Välj kategori" expanded="true" collapsible="false">
+                        <content>
+                            <VBox spacing="10.0">
+                                <Label text="Välj en kategori för att se tillgängliga matpaket."
+                                       wrapText="true"
+                                       style="-fx-text-fill: #6B7280;"/>
+
+                                <HBox spacing="12.0">
+                                    <padding>
+                                        <Insets top="4.0" right="0.0" bottom="4.0" left="0.0"/>
+                                    </padding>
+
+                                    <RadioButton fx:id="budgetRadio" text="Budget"
+                                                 style="-fx-font-size: 14px; -fx-font-weight: 700;"
+                                                 maxWidth="1.7976931348623157E308">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="categoryGroup"/>
+                                        </toggleGroup>
+                                    </RadioButton>
+
+                                    <RadioButton fx:id="mellanRadio" text="Mellan"
+                                                 style="-fx-font-size: 14px; -fx-font-weight: 700;"
+                                                 maxWidth="1.7976931348623157E308"
+                                                 toggleGroup="$categoryGroup"/>
+
+                                    <RadioButton fx:id="lyxRadio" text="Lyx"
+                                                 style="-fx-font-size: 14px; -fx-font-weight: 700;"
+                                                 maxWidth="1.7976931348623157E308"
+                                                 toggleGroup="$categoryGroup"/>
+                                </HBox>
+
+                                <Label text="Tips: Kategori väljs som enbart ett val (radio)."
+                                       style="-fx-text-fill: #6B7280; -fx-font-size: 11px;"/>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <!-- Package selection and details -->
+                    <TitledPane text="3) Välj paket och se detaljer" expanded="true" collapsible="false">
+                        <content>
+                            <VBox spacing="14.0">
+                                <GridPane hgap="12.0" vgap="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints minWidth="160.0" halignment="RIGHT"/>
+                                        <ColumnConstraints hgrow="ALWAYS"/>
+                                    </columnConstraints>
+
+                                    <Label text="Paket:" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                                           style="-fx-text-fill: #111827; -fx-font-weight: 700;"/>
+                                    <ComboBox fx:id="packageCombo"
+                                              promptText="Välj paket (t.ex. Budget 1, Mellan 2, Lyx 3)"
+                                              prefWidth="520.0"
+                                              GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                    <Label text="Beskrivning:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                                           style="-fx-text-fill: #111827; -fx-font-weight: 700;"/>
+                                    <Label fx:id="descriptionLabel"
+                                           text="Välj kategori och paket för att se beskrivning."
+                                           wrapText="true"
+                                           style="-fx-text-fill: #374151; -fx-background-color: white; -fx-padding: 12px; -fx-background-radius: 10px; -fx-border-color: #E5E7EB; -fx-border-radius: 10px;"
+                                           minHeight="120.0"
+                                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                    <Label text="Pris:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                                           style="-fx-text-fill: #111827; -fx-font-weight: 700;"/>
+                                    <HBox spacing="10.0" alignment="CENTER_LEFT"
+                                          GridPane.rowIndex="2" GridPane.columnIndex="1">
+                                        <Label fx:id="priceLabel"
+                                               text="— kr/pers"
+                                               style="-fx-font-size: 22px; -fx-font-weight: 800; -fx-text-fill: #111827;"/>
+                                        <Label text="(per person)"
+                                               style="-fx-text-fill: #6B7280;"/>
+                                    </HBox>
+                                </GridPane>
+
+                                <Separator/>
+
+                                <!-- Static reference block (UI-only) with exact package data -->
+                                <Accordion>
+                                    <panes>
+                                        <TitledPane text="Visa paketdata (referens)" expanded="false">
+                                            <content>
+                                                <VBox spacing="10.0">
+                                                    <Label text="Budget"
+                                                           style="-fx-font-weight: 800; -fx-text-fill: #111827;"/>
+                                                    <Label wrapText="true"
+                                                           text="Budget 1: Samtliga måltider under resan intas på MarsDonalds."/>
+                                                    <Label wrapText="true"
+                                                           text="Budget 2: All frukost och lunch intas på MarsDonalds medan mellanmål och middagarna intas på Marsian Buffé."/>
+                                                    <Label wrapText="true"
+                                                           text="Budget 3: Samtliga måltider under resan intas på Marsian Buffé."/>
+
+                                                    <Separator/>
+
+                                                    <Label text="Mellan"
+                                                           style="-fx-font-weight: 800; -fx-text-fill: #111827;"/>
+                                                    <Label wrapText="true"
+                                                           text="Mellan 1: All frukost intas på MarsDonalds, mellanmål och lunch på Marsian Buffé medan middagarna intas på Tellus Home."/>
+                                                    <Label wrapText="true"
+                                                           text="Mellan 2: All måltider förutom middag intas på Marsian Buffé. Middagarna intas på Tellus Home."/>
+                                                    <Label wrapText="true"
+                                                           text="Mellan 3: Samtliga måltider intas på Tellus Home."/>
+
+                                                    <Separator/>
+
+                                                    <Label text="Lyx"
+                                                           style="-fx-font-weight: 800; -fx-text-fill: #111827;"/>
+                                                    <Label wrapText="true"
+                                                           text="Lyx 1: All måltider förutom middag intas på Tellus Home medan middagarna intas på SpaceView."/>
+                                                    <Label wrapText="true"
+                                                           text="Lyx 2: Frukost och mellanmål intas på Tellus Home medan lunch och middag intas på SpaceView."/>
+                                                    <Label wrapText="true"
+                                                           text="Lyx 3: Samtliga måltider intas på SpaceView. För de som valt hyttalternativet Svit serveras frukosten i hytten från SpaceView."/>
+
+                                                    <Separator/>
+
+                                                    <Label text="Priser"
+                                                           style="-fx-font-weight: 800; -fx-text-fill: #111827;"/>
+                                                    <Label wrapText="true" text="Budget 1: 27 000 kr/pers"/>
+                                                    <Label wrapText="true" text="Budget 2: 40 000 kr/pers"/>
+                                                    <Label wrapText="true" text="Budget 3: 54 000 kr/pers"/>
+                                                    <Label wrapText="true" text="Mellan 1: 76 000 kr/pers"/>
+                                                    <Label wrapText="true" text="Mellan 2: 90 000 kr/pers"/>
+                                                    <Label wrapText="true" text="Mellan 3: 100 000 kr/pers"/>
+                                                    <Label wrapText="true" text="Lyx 1: 120 000 kr/pers"/>
+                                                    <Label wrapText="true" text="Lyx 2: 150 000 kr/pers"/>
+                                                    <Label wrapText="true" text="Lyx 3: 200 000 kr/pers"/>
+
+                                                    <Label text="(Detta block är endast en design-/referenssektion i UI:t.)"
+                                                           wrapText="true"
+                                                           style="-fx-text-fill: #6B7280; -fx-font-size: 11px;"/>
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+                                    </panes>
+                                </Accordion>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <!-- ===================== BOTTOM / BOOKING BAR ===================== -->
+    <bottom>
+        <VBox spacing="10.0" style="-fx-background-color: white;">
+            <Separator/>
+            <HBox spacing="14.0" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="12.0" right="18.0" bottom="16.0" left="18.0"/>
+                </padding>
+
+                <Label text="Valt paket:" style="-fx-text-fill: #6B7280;"/>
+                <Label fx:id="selectedPackageLabel" text="(inget valt)"
+                       style="-fx-font-weight: 800; -fx-text-fill: #111827;"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label text="Pris:" style="-fx-text-fill: #6B7280;"/>
+                <Label fx:id="selectedPriceLabel" text="— kr/pers"
+                       style="-fx-font-weight: 800; -fx-text-fill: #111827;"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button fx:id="cancelButton" text="Tillbaka" cancelButton="true"
+                        style="-fx-background-color: #F3F4F6; -fx-text-fill: #111827; -fx-font-weight: 700; -fx-background-radius: 10px; -fx-padding: 10 14;"/>
+
+                <Button fx:id="bookButton" text="Boka matpaket" defaultButton="true"
+                        style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 10px; -fx-padding: 10 16;"/>
+            </HBox>
+            <Label fx:id="bookingStatusLabel"
+                   text="Välj kund och paket för att boka."
+                   style="-fx-text-fill: #6B7280; -fx-font-size: 12px;">
+                <padding>
+                    <Insets top="0.0" right="18.0" bottom="10.0" left="18.0"/>
+                </padding>
+            </Label>
+        </VBox>
+    </bottom>
+
+</BorderPane>
